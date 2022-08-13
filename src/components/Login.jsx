@@ -67,11 +67,10 @@ const Login = () => {
 		e.target.reset();
 	};
 
-    let token = localStorage.getItem('token')
+	let token = localStorage.getItem("token");
 	return (
 		<>
-
-            {token && <Navigate to="/listado" replace={true} />  }
+			{token && <Navigate to="/listado" replace={true} />}
 
 			<h2 className="text-center my-3 ">Formulario de Login</h2>
 			<form onSubmit={handleSubmit}>

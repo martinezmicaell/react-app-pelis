@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
 	return (
-		<header className="p-3">
+		<header className="p-3 bg-dark text-white">
 			<nav className="w-100">
 				<ul className="d-flex justify-content-around">
 					<li className="">
