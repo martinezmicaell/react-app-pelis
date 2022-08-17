@@ -4,7 +4,6 @@ import { useNavigate, Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import catImage from "../images/cat-running.webp";
-import Listado from "./Listado";
 
 console.log(catImage);
 const MySwal = withReactContent(Swal);
@@ -59,7 +58,7 @@ const Login = () => {
 			});
 			console.log(res.data);
 			const tokenRecibido = res.data.token;
-			localStorage.setItem("token", tokenRecibido);
+			sessionStorage.setItem("token", tokenRecibido);
 			navigate("/listado");
 		});
 
@@ -67,7 +66,7 @@ const Login = () => {
 		e.target.reset();
 	};
 
-	let token = localStorage.getItem("token");
+	let token = sessionStorage.getItem("token");
 	return (
 		<>
 			{token && <Navigate to="/listado" replace={true} />}
@@ -76,9 +75,6 @@ const Login = () => {
 			<form onSubmit={handleSubmit}>
 				<input type="email" className="form-control p-2 my-2" name="email" placeholder="Email" defaultValue="challenge@alkemy.org" />
 				<input type="password" className="form-control p-2 my-2" name="password" placeholder="Password" />
-
-				{/* <div>{isEmail ? <p>Felicidades, escribiste un mail!</p> : null} </div> */}
-
 				<button className="btn btn-outline-primary p-2 m-2" type="submit">
 					Ingresar
 				</button>
