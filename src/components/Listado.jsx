@@ -34,9 +34,10 @@ const Listado = () => {
 				{movieList.map((movie, idx) => {
 					const { title, overview } = movie;
 					return (
-						<div key={idx} className="col-4 my-4">
-							<div className="card">
-								<img className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="..." />
+						<div key={idx} className="col-3 my-4">
+							<div className="card my-4">
+								<img loading="lazy" className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="..." />
+                                <button className="favourite-btn">♥️</button>
 								<div className="card-body">
 									<h5 className="card-title">{title}</h5>
 									<p className="card-text">{overview.substring(0, 100)}...</p>
