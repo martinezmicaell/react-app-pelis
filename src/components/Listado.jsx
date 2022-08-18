@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import axios from "axios";
+
+//Components
+import VisualizeMovies from "./VisualizeMovies";
 
 const Listado = () => {
 	const [movieList, setMovieList] = useState([]);
@@ -31,24 +34,7 @@ const Listado = () => {
 			</Helmet>
 
 			<div className="row">
-				{movieList.map((movie, idx) => {
-					const { title, overview } = movie;
-					return (
-						<div key={idx} className="col-3 my-4">
-							<div className="card my-4">
-								<img loading="lazy" className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="..." />
-                                <button className="favourite-btn">♥️</button>
-								<div className="card-body">
-									<h5 className="card-title">{title}</h5>
-									<p className="card-text">{overview.substring(0, 100)}...</p>
-									<Link to={`/detalle?movieID=${movie.id}`} className="btn btn-primary">
-										View Detail
-									</Link>
-								</div>
-							</div>
-						</div>
-					);
-				})}
+				{movieList.map((movie, idx) =>  movie.poster_path && <VisualizeMovies movie={movie} idx={idx} /> )}
 			</div>
 		</>
 	);
