@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import VisualizeMovies from './VisualizeMovies';
 
-const Resultados = () => {
+const Resultados = ({ addOrRemoveFromFavs }) => {
     const [movieResults, setMovieResults] = useState([]);
 
     let query = new URLSearchParams(window.location.search)
@@ -22,9 +22,9 @@ const Resultados = () => {
     <>
         <h2>Buscaste: <em>{keyword}</em></h2>
         <div className='row'>
-            {movieResults.map((movie, idx) => {
+            {movieResults.map((movie) => {
                 return (
-                    !movie.poster_path ? null : <VisualizeMovies movie={movie} id={idx} />
+                    movie.poster_path && <VisualizeMovies movie={movie} />
                 )
 			})}
         </div>

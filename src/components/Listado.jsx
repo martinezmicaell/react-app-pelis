@@ -34,7 +34,7 @@ const Listado = () => {
 			</Helmet>
 
 			<div className="row">
-				{movieList.map((movie, idx) =>  movie.poster_path && <VisualizeMovies movie={movie} idx={idx} /> )}
+				{movieList.map((movie) =>  movie.poster_path && <VisualizeMovies movie={movie} /> )}
 			</div>
 		</>
 	);
